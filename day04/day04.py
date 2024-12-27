@@ -69,11 +69,11 @@ def puzzle2():
         c1, c2, c3, c4 = x
         if board[c1[0]][c1[1]] == 'M' and board[c2[0]][c2[1]] == 'M' and board[c3[0]][c3[1]] == 'S' and board[c4[0]][c4[1]] == 'S':
             return True
-        if board[c1[0]][c1[1]] == 'S' and board[c2[0]][c2[1]] == 'M' and board[c3[0]][c3[1]] == 'M' and board[c4[0]][c4[1]] == 'S':
+        if board[c1[0]][c1[1]] == 'M' and board[c2[0]][c2[1]] == 'S' and board[c3[0]][c3[1]] == 'M' and board[c4[0]][c4[1]] == 'S':
+            return True
+        if board[c1[0]][c1[1]] == 'S' and board[c2[0]][c2[1]] == 'M' and board[c3[0]][c3[1]] == 'S' and board[c4[0]][c4[1]] == 'M':
             return True
         if board[c1[0]][c1[1]] == 'S' and board[c2[0]][c2[1]] == 'S' and board[c3[0]][c3[1]] == 'M' and board[c4[0]][c4[1]] == 'M':
-            return True
-        if board[c1[0]][c1[1]] == 'M' and board[c2[0]][c2[1]] == 'S' and board[c3[0]][c3[1]] == 'S' and board[c4[0]][c4[1]] == 'M':
             return True
         return False
 
@@ -82,7 +82,6 @@ def puzzle2():
             if board[i][j] == 'A':
                 c = list(map(lambda l: numpy.add((i, j), l), corners))
                 if in_bounds(c) and valid(c):
-                    print(f'Position {i}, {j} is valid.')
                     ans += 1
 
     print(f'The answer to puzzle 2 is {ans}.')
